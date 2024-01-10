@@ -1,0 +1,15 @@
+table {
+    margin: 1rem;
+    border-collapse: collapse;
+    font-size: small;
+}
+
+.dateFormatKey {
+    background-color: rgb(235, 235, 235);
+    width: 20%;
+    font-family: Consolas;
+}
+
+.dateFormatValue {
+    width: 30%;
+}
