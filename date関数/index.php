@@ -30,9 +30,9 @@ echo '現在の東京の日時（参考）：' . $date->format('r');
       echo <<<END
         <tr>
           <td class="dateFormatKey">date('$array[0]')</td>
-          <td class="dateFormatValue">{$a}</td>
+          <td class="dateFormatValue">$a</td>
           <td class="dateFormatKey">date('$array[1]')</td>
-          <td class="dateFormatValue">{$b}</td>
+          <td class="dateFormatValue">$b</td>
         </tr>
         END;
     }
