@@ -1,0 +1,41 @@
+.calendarTable {
+    border-collapse: collapse;
+}
+
+.calendarTableHeader,
+.calendarTableRow,
+.calendarTableColumn {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+}
+
+.emptyCell {
+    background-color: rgb(240, 240, 240);
+}
+
+.dayCell:hover {
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+.nextButton,
+.backButton {
+    margin: 1rem 0.1rem;
+}
+
+.generalButton {
+    background-color: rgb(240, 240, 240);
+    border: solid 1px rgb(180, 180, 180);
+    border-radius: 3px;
+    padding: 0.3rem 0.5rem;
+}
+
+.generalButton:hover {
+    background-color: rgb(250, 250, 250);
+    cursor: pointer;
+}
+
+.yearAndMonthPulldown {
+    margin: 1rem 0;
+}
