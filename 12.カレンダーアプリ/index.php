@@ -17,18 +17,20 @@ if ($_SERVER['REQUEST_URI'] == '/' && count($_GET) == 0) {
   unset($_SESSION['year']);
   unset($_SESSION['month']);
   unset($_SESSION['page']);
+
+  $_SESSION['year'] = (int)date('Y');
+  $_SESSION['month'] = (int)date('m');
 }
 
 // タイムゾーンを指定
 date_default_timezone_set('Asia/Tokyo');
 
+include 'set_session_variables.php';
+
 ?>
 
 <!-- 入力フォーム -->
 <?php include 'input_form.php'; ?>
-
-<!-- セッション変数設定 -->
-<?php include 'set_variables.php'; ?>
 
 <!-- 閲覧中のカレンダーの年月 -->
 <?php
