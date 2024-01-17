@@ -2,18 +2,27 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-  // 年または月の入力エリアが空白でカレンダー表示ボタンを押下した場合
-  if(
-    isset($_GET['year']) &&
-    (!is_numeric($_GET['year']) || !is_numeric($_GET['month']))
-  ) {
-    echo '年月を正しく入力してください<br>';
-    echo '<a href="/">ホーム</a>';
-    exit();
-  }
+  $year_options = array(
+    'options' => array(
+      'min_range'=> 1,
+    )
+  );
+  $month_options = array(
+    'options' => array(
+      'min_range'=> 1,
+      'max_range'=> 12,
+    )
+  );
 
-  // 次月・前月要求の場合
+  $year = filter_input(INPUT_GET, 'year', FILTER_VALIDATE_INT, $year_options);
+  $month = filter_input(INPUT_GET, 'month', FILTER_VALIDATE_INT, $month_options);
+
   if (isset($_GET['direction'])) {
+    // 次月・前月要求の場合
+
+    // エラーメッセージをクリア
+    $_SESSION['inputValidation'] = '';
+
     switch($_GET['direction']) {
       case 'next':
         if ($_SESSION['month'] == 12) {
@@ -32,9 +41,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         }
         break;
     }
-  } elseif (isset($_GET['year'])) {
-    $_SESSION['year'] = $_GET['year'];
-    $_SESSION['month'] = $_GET['month'];
+  } elseif (isset($_GET['year'], $_GET['month'])) {
+    if ($year && $month) {
+      // 有効な年月が入力された場合
+      $_SESSION['year'] = $_GET['year'];
+      $_SESSION['month'] = $_GET['month'];
+      // エラーメッセージをクリア
+      $_SESSION['inputValidation'] = '';
+    } elseif (!(is_numeric($_GET['year']) && is_numeric($_GET['month']))) {
+      $_SESSION['inputValidation'] = '入力された文字列に数字以外の文字が含まれています';
+    } elseif ((int)$_GET['year'] <= 0) {
+      $_SESSION['inputValidation'] = '年は 0 より大きい値でなければなりません';
+    } elseif (!((int)$_GET['month'] >= 1 && (int)$_GET['month'] <= 12)) {
+      $_SESSION['inputValidation'] = '月は 1 から 12 の値でなければなりません';
+    }
   }
 }
 ?>

@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_URI'] == '/' && count($_GET) == 0) {
   unset($_SESSION['year']);
   unset($_SESSION['month']);
   unset($_SESSION['page']);
+  unset($_SESSION['inputValidation']);
 
   $_SESSION['year'] = (int)date('Y');
   $_SESSION['month'] = (int)date('m');
@@ -35,15 +36,16 @@ include 'set_session_variables.php';
 
 <!-- 表示中のカレンダーの年月 -->
 <div class="DisplayingDateLine">
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-  echo '<span class="h2Header">' . $_SESSION['year'] . '年' . $_SESSION['month'] . '月</span>';
-}
-?>
-</div>
+  <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+      echo '<span class="h2Header yearAndMonth">' . $_SESSION['year'] . '年' . $_SESSION['month'] . '月</span>';
+    }
+  ?>
 
-<!-- 前月・今月・次月ボタン -->
-<?php include 'transition_month.php'; ?>
+  <!-- 前月・今月・次月ボタン -->
+  <?php include 'transition_month.php'; ?>
+
+</div>
 
 <!-- 入力フォーム -->
 <?php include 'input_form.php'; ?>
