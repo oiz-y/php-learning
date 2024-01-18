@@ -5,37 +5,37 @@
 }
 
 .AppHeader {
-grid-column: col-start 3 / -1;
-grid-row: 1 / 2;
+  grid-column: col-start 3 / -1;
+  grid-row: 1 / 2;
 }
 
 .DisplayingDateLine {
-grid-column: col-start 4 / -1;
-grid-row: 2 / 3;
+  grid-column: col-start 4 / -1;
+  grid-row: 2 / 3;
 }
 
 .MonthTransitionButtonLine {
-grid-column: col-start 6 / 8;
-grid-row: 2 / 3;
+  grid-column: col-start 6 / 8;
+  grid-row: 2 / 3;
 }
 
 .DateInputForm {
-grid-column: col-start 4 / 8;
-grid-row: 3 / 4;
+  grid-column: col-start 4 / 8;
+  grid-row: 3 / 4;
 }
 
 .DisplayingCalendarArea {
-grid-column: col-start 4 / 9;
-grid-row: 4 / 6;
+  grid-column: col-start 4 / 9;
+  grid-row: 4 / 6;
 }
 
 .h2Header {
-font-size: 1.2rem;
-font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .yearAndMonth {
-margin-right: 10px;
+  margin-right: 10px;
 }
 
 .calendarTable {
@@ -51,8 +51,8 @@ margin-right: 10px;
 }
 
 .calendarTableColumn {
-width: 40px;
-height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .emptyCell {
@@ -78,6 +78,6 @@ height: 40px;
 }
 
 .textForm {
-width: 80px;
-margin-right: 10px;
+  width: 80px;
+  margin-right: 10px;
 }
